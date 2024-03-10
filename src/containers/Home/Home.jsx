@@ -8,7 +8,6 @@ const Home = () => {
         <>
             <Header />
             <Navbar />
-            <h2 className="text-red">This is Home pages</h2>
             <div className="grid lg:grid-cols-4 gap-6	">
                 <div className=" border border-red-600">
                     <LifeSideNavbar />
@@ -16,7 +15,7 @@ const Home = () => {
                 <div className=" border border-red-600 col-span-2">
                     <h2 className="text-3xl text-red">This is dinamic news</h2>
                 </div>
-                <div className="border border-red-600">
+                <div className="">
                     <RightSideNavbar />
                 </div>
             </div>
