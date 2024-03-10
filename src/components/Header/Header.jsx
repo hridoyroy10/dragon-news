@@ -6,7 +6,7 @@ const Header = () => {
         <>
             <div className=" text-center leading-7 mt-5">
                 <h2 className=" text-5xl font-fontOleo">The Dragon News</h2>
-                <p><small>Journalism Without Fear or Favour</small></p>
+                <p><small className=' text-xl '>Journalism Without Fear or Favour</small></p>
                 <p>{moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}</p>
             </div>
             <div className=" flex  mt-5 justify-center p-2 bg-[#9e9e9e] items-center gap-3">

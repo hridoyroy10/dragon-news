@@ -9,7 +9,7 @@ const Home = () => {
             <Header />
             <Navbar />
             <div className="grid lg:grid-cols-4 gap-6	">
-                <div className=" border border-red-600">
+                <div className="">
                     <LifeSideNavbar />
                 </div>
                 <div className=" border border-red-600 col-span-2">

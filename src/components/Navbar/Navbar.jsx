@@ -30,7 +30,7 @@ const Navbar = () => {
                 <div className="w-10 rounded-full">
                     <img alt="user logo " src={user} />
                 </div>
-                <Link className="btn rounded-none">Login</Link>
+                <Link to='/login' className="btn rounded-none">Login</Link>
             </div>
         </div>
     );
