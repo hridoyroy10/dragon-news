@@ -22,12 +22,12 @@ const RightSideNavbar = () => {
 
             <div className=" mb-4">
                 <h2 className="text-3xl font-medium mb-3">Find Us On</h2>
-                <button className="btn btn-outline w-full text-xl  rounded-none">
+                <button className="btn btn-outline w-full text-xl   rounded-none">
                     <FaFacebook className=" text-2xl" />
                     Facebook
                 </button>
                 <br />
-                <button className="btn btn-outline w-full text-xl  rounded-none">
+                <button className="btn btn-outline w-full text-xl   rounded-none">
                     <FaSquareTwitter className=" text-2xl" />
                     Twitter
                 </button>
