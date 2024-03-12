@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 
 
 const Register = () => {
+
+    const [showPassword, setShowPassword] = useState(' ');
+
     const { createUser } = useContext(AuthContext)
     const handleRegister = (e) => {
         e.preventDefault();
@@ -15,7 +19,7 @@ const Register = () => {
         const email = form.get('email');
         const password = form.get('password');
         console.log(name, photo, email, password);
-        
+
         createUser(email, password)
             .then(result => {
                 console.log(result);
@@ -45,13 +49,20 @@ const Register = () => {
                     <label className="label">
                         <span className="label-text text-3xl">Email address</span>
                     </label>
-                    <input type="email" name="email" placeholder="email" className="input input-bordered rounded-none" required />
+                    <input type="email" name="email" placeholder="info@gmail.com" className="input input-bordered rounded-none" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-3xl">Password</span>
                     </label>
-                    <input type="password" name="password" placeholder="password" className="input input-bordered rounded-none" required />
+                    <div className="relative">
+                        <input type={ !showPassword ? "text" : "password"} id="password" name="password" placeholder="****" className="input w-full input-bordered rounded-none" required />
+                        <span className=" absolute -ml-8 mt-4 text-lg" onClick={() => { setShowPassword(!showPassword) }}>
+                            {
+                                showPassword ? <FaEyeSlash /> : <FaEye />
+                            }
+                        </span>
+                    </div>
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover text-base">Accept Term & Conditions</a>
                     </label>

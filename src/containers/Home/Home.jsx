@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
+
+import { useLoaderData } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import LifeSideNavbar from "../LifeSideNavbar/LifeSideNavbar";
 import RightSideNavbar from "../RightSideNavbar/RightSideNavbar";
-import DisplayNews from "../DisplayNews/DisplayNews";
+import NewsCard from "./NewsCard";
+
 
 const Home = () => {
-
-    const [news, setNews] = useState([]);
-    useEffect(() => {
-        fetch("../../../public/news.json")
-            .then(res => res.json())
-            .then(data => setNews(data))
-
-    }, [])
+    const news = useLoaderData();
+console.log(news);
 
     return (
         <>
@@ -23,9 +19,9 @@ const Home = () => {
                 <div className="">
                     <LifeSideNavbar />
                 </div>
-                <div className=" border border-red-600 col-span-2">
+                <div className="col-span-2 ">
                     {
-                        news.map(displayNews=> <DisplayNews key={displayNews.id} displayNews={displayNews}/>)
+                        news.map(singelNews => <NewsCard key={singelNews.id} singelNews={singelNews}></NewsCard>)
                     }
                 </div>
                 <div className="">

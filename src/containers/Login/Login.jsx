@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(' ');
 
     const { logIn } = useContext(AuthContext);
 
@@ -16,7 +19,7 @@ const Login = () => {
 
         logIn(email, password)
             .then(() => {
-                alert(' ')
+                alert('You have  successfully login ')
             })
             .catch(error => {
                 console.error(error);
@@ -38,7 +41,17 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text text-3xl">Password</span>
                     </label>
-                    <input type="password" placeholder="password" name="password" className="input input-bordered rounded-none" required />
+
+                    <div className=" relative">
+
+                        <input type={!showPassword ? "text" : "password"} id="password"  name="password" placeholder="password" className="input w-full  input-bordered rounded-none" required />
+                        <span className="absolute text-xl -ml-8 mt-4" onClick={() => { setShowPassword(!showPassword) }}>
+                            {
+                                showPassword ? <FaEyeSlash /> : <FaEye /> 
+                            }
+                        </span>
+                    </div>
+
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover text-base">Forgot password?  </a>
                     </label>
