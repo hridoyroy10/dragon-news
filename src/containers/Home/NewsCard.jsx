@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import { FaBookmark } from "react-icons/fa6";
+import { FaBookmark, FaEye, FaStar } from "react-icons/fa6";
 import { RxShare1 } from "react-icons/rx";
 
 
+
 const NewsCard = ({ singelNews }) => {
-    const { author, image_url } = singelNews;
+    const { author, details, title, total_view, image_url, rating_Star } = singelNews;
     return (
         <div>
             <div className="card w-full mb-16 bg-base-100 shadow-xl">
@@ -18,19 +19,20 @@ const NewsCard = ({ singelNews }) => {
                     </div>
                     <div className=' flex gap-4'>
                         <FaBookmark />
-                        <RxShare1/>
+                        <RxShare1 />
                     </div>
                 </div>
+                <p>{title}</p>
                 <figure><img src={image_url} alt="news image" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
-                        Shoes!
-                        <div className="badge badge-secondary">NEW</div>
+                        {details}
                     </h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
+                    <hr />
+
+                    <div className="card-actions justify-between items-center">
+                        <div className="flex justify-center items-center gap-3 text-2xl text-red-700"><FaStar /><FaStar /><FaStar /><FaStar /></div>
+                        <div className=" text-2xl flex justify-center items-center gap-4"><FaEye /> {total_view}</div>
                     </div>
                 </div>
             </div>
