@@ -7,9 +7,9 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const navLink = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/about'>About</NavLink></li>
-        <li><NavLink to='/login'>Login</NavLink></li>
+        <li><NavLink className="text-xl rounded-xl gap-3" to='/'>Home</NavLink></li>
+        <li><NavLink className="text-xl rounded-xl gap-3" to='/about'>About</NavLink></li>
+        <li><NavLink className="text-xl rounded-xl gap-3" to='/login'>Login</NavLink></li>
     </>
 
     const handleSingOut = () => {
@@ -45,7 +45,7 @@ const Navbar = () => {
                         <button onClick={handleSingOut} className="btn rounded-none">Sing Out</button>
                         :
                         <Link to='/login'>
-                            <button className="btn rounded-none">Login</button>
+                            <button className="btn rounded-none text-2xl">Login</button>
                         </Link>
                 }
 

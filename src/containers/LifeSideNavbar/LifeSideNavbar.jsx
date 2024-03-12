@@ -18,7 +18,7 @@ const LifeSideNavbar = () => {
             <div className=" mt-4 ml-5">
                 {
                     categories.map(category => <Link 
-                        className="block text-xl 
+                        className="block text-2xl 
                          font-semibold py-2" 
                         key={category.id}
                     >{category.name}</Link>)

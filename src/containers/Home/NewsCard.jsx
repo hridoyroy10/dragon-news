@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import { FaBookmark, FaEye, FaStar } from "react-icons/fa6";
 import { RxShare1 } from "react-icons/rx";
+import { Link } from 'react-router-dom';
 
 
 
 const NewsCard = ({ singelNews }) => {
-    const { author, details, title, total_view, image_url, rating_Star } = singelNews;
+    const { author, details, title, total_view, image_url } = singelNews;
     return (
         <div>
             <div className="card w-full mb-16 bg-base-100 shadow-xl">
@@ -17,16 +18,21 @@ const NewsCard = ({ singelNews }) => {
                             <p>{author.published_date}</p>
                         </div>
                     </div>
-                    <div className=' flex gap-4'>
+                    <div className=' text-2xl flex gap-4'>
                         <FaBookmark />
                         <RxShare1 />
                     </div>
                 </div>
-                <p>{title}</p>
+                <p className='font-bold p-4 text-4xl'>{title}</p>
                 <figure><img src={image_url} alt="news image" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
-                        {details}
+                    <h2 className="card-title text-xl font-normal">
+                        {
+                            details.length > 200 ?
+                                <p>{details.slice(0, 200)} <Link className=' font-bold text-red-500'>....Read More</Link></p>
+                                :
+                                <p>{details}</p>
+                        }
                     </h2>
                     <hr />
 
