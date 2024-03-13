@@ -4,6 +4,8 @@ import Home from "../containers/Home/Home";
 import About from "../containers/About/About";
 import Login from "../containers/Login/Login";
 import Register from "../containers/Register/Register";
+import NewsDetails from "../containers/NewsDetails/NewsDetails";
+import Privateroute from "./Privateroute";
 
 const routes = createBrowserRouter([
     {
@@ -14,6 +16,10 @@ const routes = createBrowserRouter([
                 path: "/",
                 element: <Home />,
                 loader: () => fetch('../../public/news.json')
+            },
+            {
+                path: "/news/:id",
+                element: <Privateroute><NewsDetails /></Privateroute>
             },
             {
                 path: "/about",
